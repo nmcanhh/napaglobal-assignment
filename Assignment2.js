@@ -2,3 +2,17 @@
 // Hãy implement sao cho thời gian thực thi thành công 20 sự kiện bất đồng bộ là nhanh nhất (tận dụng tối đa thời gian chờ của CPU, 
 // không nên chọn giải pháp chia thành 4 cụm và chạy tuần tự từng cụm)
 // *Chú ý: phải tìm hiểu kỹ về promise, async, await thì mới làm nhé.
+
+
+const events = [];
+
+for( let i=0 ; i< 20 ; i++ ){
+    events.push(Promise.resolve(`e${i}`))
+}
+
+const resolveEvents = async (events) => {
+    const eventsLength = events.length;
+ for (let i = 0; i < eventsLength; i += 5 ) {
+     
+ }
+}
