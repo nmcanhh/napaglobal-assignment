@@ -11,26 +11,24 @@
 // * Chú ý: chỉ được sử dụng API Promise.all kết hợp thêm logic
 
 
-let promise1 = new Promise((resolve, reject) => {
-    resolve('Promise 1');
-});
+const event1 = new Promise((resolve, reject) => {
+    resolve("Event 1 Success")
+})
 
-let promise2 = new Promise((resolve, reject) => {
-    reject('reject Promise 2');
-});
+const event2 = new Promise((resolve, reject) => {
+    reject("Event 2 Error")
+})
 
-let promise3 = new Promise((resolve, reject) => {
-    resolve('Promise 3');
-});
+const event3 = new Promise((resolve, reject) => {
+    resolve("Event 3 Success")
+})
 
-const promises = [promise1, promise2, promise3]
-let promise = Promise.all(promises.map(promise => promise.catch(e => {
-    if (e) {
-        console.log(e)
-    }
-})))
-promise.then(result => {
-    console.log(result);
+const promises = [event1, event2, event3];
+
+let currentPromise = Promise.all(promises.map(promise => promise.catch(err => console.log(err))));
+
+currentPromise.then(res => {
+    console.log(res);
 }).catch(err => {
-    console.log(err);
+    console.log("Failed");
 })
