@@ -30,7 +30,6 @@ const eventGroup = async () => {
         }).catch(err => {
             return { status: "Failed", value: err }
         });
-
     }));
     console.log("Result:", value);
 }
