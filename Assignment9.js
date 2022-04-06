@@ -25,10 +25,10 @@ const event3 = new Promise((resolve, reject) => {
 
 const eventGroup = async () => {
     const value = await Promise.all([event1, event2, event3].map(event => {
-        return event.then(result => {
-            return { status: 'Success', value: result }
-        }).catch(error => {
-            return { status: "Failed", value: error }
+        return event.then(res => {
+            return { status: 'Success', value: res }
+        }).catch(err => {
+            return { status: "Failed", value: err }
         });
 
     }));
