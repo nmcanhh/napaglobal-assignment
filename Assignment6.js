@@ -6,7 +6,7 @@ const obj = {
     email: "canh.nguyen@napaglobal.com",
     info: {
         address: "Đà Nẵng"
-      }
+    }
 };
 
 // 1. Spread (Shallow Clone) - Không Deep clone được
@@ -43,4 +43,12 @@ obj_5.info.address = "Hà Nội";
 
 console.log("obj_4", obj_4); // { username: 'nmcanhh', email: 'canh.nguyen@napaglobal.com', info: { 'Đà Nẵng' }, age: 25 }
 console.log("obj_5", obj_5); // { username: 'nmcanhh', email: 'canh.nguyen@napaglobal.com', info: { 'Hà Nội' } }
+
+/*
+Có phải trường hợp nào cũng nên sử dụng deep clone hay không? Vì sao?
+ + Shallow Clone nhiệm vụ của nó chỉ copy những giá trị nông tức là chỉ sao chép 
+ các giá trị đối tượng bình thường nhưng khi thay đổi ở object đã clone thì ở object gốc cũng thay đổi theo.
+ + Deep Clone cũng giống như Shallow Clone nhưng khi tác động vào object đã clone thì object gốc không thay đổi.
+*/
+
 
