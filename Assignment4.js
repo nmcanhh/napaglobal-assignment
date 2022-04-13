@@ -17,7 +17,20 @@ const controller2 = (req, res) => {
     res.status(200).end();
 }
 
-// Giả sử có 3 request đồng thời gọi vào controller1 và controller2 thì thời gian để nhận được
-// response tại controller1 và controller2 của request đầu tiên là bao lâu?
-// Đề xuất cải thiện performance cho controller2?
-// Gợi ý: sử dụng job-queue
+
+/* Giả sử có 3 request đồng thời gọi vào controller1 và controller2 thì thời gian để nhận được
+response tại controller1 và controller2 của request đầu tiên là bao lâu?
+Đề xuất cải thiện performance cho controller2?
+Gợi ý: sử dụng job-queue */
+
+
+/* Response đầu tiên của Controller 1 là 40s và Controller 2 là 10s  */
+/* Để cải thiện performance thì chúng ta sử dụng process.nextTick 
+const controller2 = (req, res) => {
+    process.nextTick(function(){
+        waitBlocking(10000)
+    });
+    res.status(200).end();
+}
+*/
+
